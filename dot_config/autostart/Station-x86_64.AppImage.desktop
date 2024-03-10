@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Station-x86_64.AppImage
+Comment=Station-x86_64.AppImagestartup script
+Exec=/home/arun/programs/noinstall/station/Station-x86_64.AppImage
+StartupNotify=false
+Terminal=false

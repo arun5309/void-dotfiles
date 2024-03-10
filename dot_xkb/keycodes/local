@@ -1,0 +1,15 @@
+xkb_keymap {
+	xkb_keycodes  { 
+	    include "evdev+aliases(qwerty)"
+	    // Custom modifications	
+	    <CAPS> = 22;
+	    <BKSP> = 66;
+	    <RCTR> = 108;
+	    <RALT> = 105;
+	    <ESC>  = 135;
+	};
+	xkb_types     { include "complete"	};
+	xkb_compat    { include "complete"	};
+	xkb_symbols   { include "pc+us(workman)+inet(evdev)+altwin(meta_alt)"	};
+	xkb_geometry  { include "pc(pc105)"	};
+};

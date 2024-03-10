@@ -1,0 +1,3 @@
+#source "/home/arun/programs/noinstall/emsdk/emsdk_env.sh"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

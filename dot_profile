@@ -1,0 +1,6 @@
+export QT_QPA_PLATFORMTHEME="qt5ct"
+. "$HOME/.cargo/env"
+SVDIR=$HOME/.local/sv/
+
+# nix to utilize the nix-daemon
+export NIX_REMOTE=daemon

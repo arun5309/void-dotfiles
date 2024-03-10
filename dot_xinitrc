@@ -1,0 +1,29 @@
+#!/bin/sh
+
+#source Xresources
+xrdb /home/arun/.Xresources
+
+#turn on numlock
+numlockx
+
+#set keyboard layout to workman
+~/scripts/workman.sh
+
+#start xsettingsd
+xsettingsd &
+
+#start i3
+dbus-launch i3 &
+#i3
+
+#start kde plasma
+#export DESKTOP_SESSION=plasma
+#exec startplasma-x11
+
+# start pipewire
+dbus-run-session pipewire
+
+# Older doesn't work now
+# This in addition to starting i3 also enables dbus and ConsoleKit2
+#exec ck-launch-session dbus-launch --sh-syntax --exit-with-x11 i3
+ 

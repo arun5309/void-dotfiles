@@ -1,0 +1,65 @@
+# My configurations
+
+# UI configurations
+
+# Highlighters
+
+add-highlighter global/ number-lines -hlcursor
+add-highlighter global/ show-matching
+#add-highlighter global/ wrap -word -indent -width 80
+
+# Set options
+
+set-option global indentwidth 4
+set-option global tabstop 4
+
+# Insert spaces instead of tabs
+# map global insert <tab> '<a-;><gt>'
+# map global insert <backtab> '<a-;><lt>'
+
+
+# Install and setup plug
+
+evaluate-commands %sh{
+    plugins="$kak_config/plugins"
+    mkdir -p "$plugins"
+    [ ! -e "$plugins/plug.kak" ] && \
+        git clone -q https://github.com/andreyorst/plug.kak.git "$plugins/plug.kak"
+    printf "%s\n" "source '$plugins/plug.kak/rc/plug.kak'"
+}
+
+plug "andreyorst/plug.kak" noload
+
+# Copy with system clipboard (paste with shift + insert)
+
+hook global RegisterModified '"' %{ nop %sh{
+  printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+}}
+
+map global user P '!xsel --output --clipboard<ret>'
+
+map global user p '<a-!>xsel --output --clipboard<ret>'
+
+# Clipboard integration
+
+# plug "lePerdu/kakboard" %{
+#    hook global WinCreate .* %{ kakboard-enable }
+# }
+
+# fzf kak
+
+plug "andreyorst/fzf.kak"
+map global normal <c-p> ': fzf-mode<ret>'
+
+# smart tab
+
+plug "andreyorst/smarttab.kak"
+
+# lsp. based on kak-lsp
+
+eval %sh{kak-lsp --kakoune -s $kak_session}
+hook global WinSetOption filetype=(python|html|css|javascript|json|c|cpp) %{
+	lsp-enable-window
+}
+
+

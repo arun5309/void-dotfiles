@@ -1,0 +1,98 @@
+! xterm config
+
+! Monokai theme
+*xterm*background: #282828
+*xterm*foreground: #f8f8f2
+*xterm*cursorColor: #ffffff
+*xterm*color0: #49483e
+*xterm*color1: #f92682
+*xterm*color2: #a6e22e
+*xterm*color3: #e6db74
+*xterm*color4: #66d9ef
+*xterm*color5: #ef2672
+*xterm*color6: #ae81ff
+*xterm*color7: #fd971f
+*xterm*color8: #49483e
+*xterm*color9: #f92682
+*xterm*color10: #a6e22e
+*xterm*color11: #e6db74
+*xterm*color12: #66d9ef
+*xterm*color13: #ef2672
+*xterm*color14: #ae81ff
+*xterm*color15: #fd971f
+
+! start with utf-8
+XTerm*utf8: 1
+
+! copy to clipboard
+XTerm*selectToClipboard: true
+
+! setup fonts
+*xterm*faceName:DejaVu\ Sans\ Mono
+*xterm*faceSize: 11
+
+! Clipboard setup
+xterm*VT100.Translations: #override \
+    Shift <KeyPress> Insert: insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>C:    copy-selection(CLIPBOARD) \n\
+    Ctrl <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY)
+
+! 256color
+xterm*termName: xterm-256color
+
+! Meta sends escape
+xterm*metaSendsEscape: true
+
+
+! urxvt config
+
+! Monokai theme
+
+*URxvt*background: #282828
+*URxvt*foreground: #f8f8f2
+*URxvt*cursorColor: #ffffff
+*URxvt*color0: #49483e
+*URxvt*color1: #f92682
+*URxvt*color2: #a6e22e
+*URxvt*color3: #e6db74
+*URxvt*color4: #66d9ef
+*URxvt*color5: #ef2672
+*URxvt*color6: #ae81ff
+*URxvt*color7: #fd971f
+*URxvt*color8: #49483e
+*URxvt*color9: #f92682
+*URxvt*color10: #a6e22e
+*URxvt*color11: #e6db74
+*URxvt*color12: #66d9ef
+*URxvt*color13: #ef2672
+*URxvt*color14: #ae81ff
+*URxvt*color15: #fd971f
+
+! Font
+*URxvt*font: xft:DejaVu Sans Mono:size=11:antialias=true
+*URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=11:antialias=true
+
+! remove scroll bar
+*URxvt*scrollBar: false
+
+! perl extensions
+URxvt.perl-ext: default,url-select
+URxvt.perl-ext-common: default,resize-font,selection-to-clipboard,keyboard-select
+
+! yankable urls
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+! Dynamic font size changing keybindings
+URxvt.keysym.C-KP_Subtract:  resize-font:smaller
+URxvt.keysym.C-KP_Add:    resize-font:bigger
+
+! For C-shift bindings to work
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! For keyboard select activate
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
